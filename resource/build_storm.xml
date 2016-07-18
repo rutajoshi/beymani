@@ -3,11 +3,12 @@
 <target name="uber-jar">
     <echo>Packaging into a single uber JAR</echo>
 	<jar destfile="uber-beymani-1.0.jar">
-		<zipgroupfileset dir="/home/pranab/Projects/lib" includes="jedis-2.1.0.jar,commons-pool-1.5.5.jar" /> 
-		<zipgroupfileset dir="/home/pranab/Projects/beymani/target" includes="beymani-1.0.jar, " /> 
-		<zipgroupfileset dir="/home/pranab/Projects/chombo/target" includes="chombo-1.0.jar, " /> 
+		<zipgroupfileset dir="/home/ruta/beymani/target" includes="beymani-1.0.jar, " /> 
+		<zipgroupfileset dir="/home/ruta/chombo/target" includes="chombo-1.0.jar, " /> 
+		<zipgroupfileset dir="/home/ruta/avenir/target" includes="avenir-1.0.jar, " />
+		<zipgroupfileset dir="/home/ruta/Jars" includes="jedis-2.1.1.jar,commons-pool-1.5.5.jar,jackson-core-lgpl-1.6.3.jar,jackson-mapper-lgpl-1.6.3.jar,commons-lang-3.1.jar,storm-core-0.9.3.2.2.4.2-2.jar, " /> 
 		<manifest>
-			<attribute name="Main-Class" value=" org.beymani.predictor.OutlierPredictor" />
+			<attribute name="Main-Class" value= "org.beymani.predictor.OutlierPredictor" />
 		</manifest>
 	</jar>
 </target>

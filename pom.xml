@@ -17,6 +17,22 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
             </plugins>
         </pluginManagement>
         <plugins>
+	    <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+		<version>2.4.3</version>
+                <executions>
+                        <execution>
+                                <phase>package</phase>
+                                <goals>
+                                        <goal>shade</goal>
+                                </goals>
+                        </execution>
+                </executions>
+                <configuration>
+                        <finalName>uber-${artifactId}-${version}</finalName>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -93,7 +109,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			<groupId>storm</groupId>
 			<artifactId>storm</artifactId>
 			<version>0.8.2</version>
-		</dependency>   
+			<scope>compile</scope>
+		</dependency>  
+		
+		<dependency>
+    			<groupId>org.apache.storm</groupId>
+    			<artifactId>storm-core</artifactId>
+    			<version>1.0.1</version>
+		</dependency>
         
 		<dependency>
 			<groupId>org.clojure</groupId>
